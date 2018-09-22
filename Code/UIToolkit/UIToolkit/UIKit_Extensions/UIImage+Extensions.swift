@@ -15,7 +15,7 @@ public extension UIImage {
      Forces the specified size, so aspect ratio is **not** preserved. In order
      to preserve aspect ratio, use `resizedToFit(_:)` instead.
     */
-    func resizedTo(_ newSize: CGSize) -> UIImage {
+    public func resizedTo(_ newSize: CGSize) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: newSize)
         let image = renderer.image { _ in
             self.draw(in: CGRect.init(origin: CGPoint.zero, size: newSize))
@@ -29,7 +29,7 @@ public extension UIImage {
      resizing that `UIImageView` does to its content when contentMode is set to
      `.scaleAspectFit`.
      */
-    func resizedToFit(_ newSize: CGSize) -> UIImage {
+    public func resizedToFit(_ newSize: CGSize) -> UIImage {
         let currentSize = self.size
         let imageAspect = currentSize.width / currentSize.height
         let targetAspect = newSize.width / newSize.height
@@ -57,7 +57,7 @@ public extension UIImage.Orientation {
     /**
      For identifying each value on the debug console.
      */
-    var debugDescription: String {
+    public var debugDescription: String {
         switch  self {
         case .up:
             return "Up"
@@ -83,7 +83,7 @@ public extension UIImage.Orientation {
      possible EXIF orientations (up, down, left, right, and their mirrored
      counterparts). However, the actual enumeration raw values do not match.
      */
-    var cgOrientation: CGImagePropertyOrientation {
+    public var cgOrientation: CGImagePropertyOrientation {
         switch self {
         case .up:
             return .up
@@ -104,11 +104,11 @@ public extension UIImage.Orientation {
         }
     }
 
-    static func == (lhs: UIImage.Orientation, rhs: CGImagePropertyOrientation) -> Bool {
+    public static func == (lhs: UIImage.Orientation, rhs: CGImagePropertyOrientation) -> Bool {
         return (lhs.cgOrientation == rhs)
     }
 
-    static func == (lhs: CGImagePropertyOrientation, rhs: UIImage.Orientation) -> Bool {
+    public static func == (lhs: CGImagePropertyOrientation, rhs: UIImage.Orientation) -> Bool {
         return (lhs == rhs.cgOrientation)
     }
 }

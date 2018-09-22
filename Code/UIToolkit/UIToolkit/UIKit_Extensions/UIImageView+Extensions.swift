@@ -18,7 +18,7 @@ public extension UIImageView {
 
      - note: Only `UIViewContentMode.scaleAspectFit` is supported at the time.
      */
-    var contentFrame: CGRect {
+    public var contentFrame: CGRect {
         guard let image = self.image else {
             fatalError("UIImageView.contentBounds: No content.")
         }
@@ -69,7 +69,7 @@ public extension UIImageView {
 
      - note: Only `UIViewContentMode.scaleAspectFit` is supported at the time.
     */
-    var imageAtDisplayedSize: UIImage? {
+    public var imageAtDisplayedSize: UIImage? {
         guard self.image != nil else {
             return nil
         }

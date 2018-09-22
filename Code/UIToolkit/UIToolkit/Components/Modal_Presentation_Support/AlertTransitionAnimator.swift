@@ -13,16 +13,16 @@ import UIKit
 /// `UIAlertController`
 ///
 ///
-class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     ///
-    enum Phase {
+    internal enum Phase {
         case presenting
         case dismissing
     }
 
     ///
-    private(set) public var phase: Phase
+    private(set) internal var phase: Phase
 
     /// Consider making globally configurable.
     ///
@@ -45,11 +45,11 @@ class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     // MARK: - UIViewControllerAnimatedTransitioning
 
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
 
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         switch phase {
         case .presenting:
             animatePresentation(using: transitionContext)
@@ -58,7 +58,7 @@ class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
 
-    func animationEnded(_ transitionCompleted: Bool) {
+    public func animationEnded(_ transitionCompleted: Bool) {
 
     }
 
