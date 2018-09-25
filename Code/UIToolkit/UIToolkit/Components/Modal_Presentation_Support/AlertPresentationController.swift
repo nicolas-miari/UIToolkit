@@ -8,10 +8,11 @@
 
 import UIKit
 
-/// Presents arbitrary view controllers in a maner similar to the stock
-/// `UIAlertController`: smaller than full-screen, with the view's corners
-/// rounded and a dimmed background underneath.
-///
+/**
+ Presents arbitrary view controllers in a maner similar to the stock
+ `UIAlertController`: smaller than full-screen, with the view's corners rounded
+ and a dimmed background underneath.
+*/
 class AlertPresentationController: UIPresentationController {
 
     fileprivate var dimmingView: UIView
