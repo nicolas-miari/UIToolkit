@@ -9,7 +9,7 @@
 import UIKit
 import UIToolkit
 
-public class SettingsViewController: UIViewController {
+public class SettingsViewController: AlertViewController {
 
     @IBOutlet private(set) weak var blurSlider: UISlider!
 
@@ -17,31 +17,6 @@ public class SettingsViewController: UIViewController {
 
     ///
     public var completionHandler: (() -> Void)?
-
-    // MARK: -
-
-    private let customTransitioningDelegate: AlertTransitionDelegate
-    private let horizontalMargin: CGFloat = 30
-    private let verticalMargin: CGFloat = 40
-
-    // MARK: - Initialization
-
-    public required init?(coder aDecoder: NSCoder) {
-        self.customTransitioningDelegate = AlertTransitionDelegate()
-        super.init(coder: aDecoder)
-        commonSetup()
-    }
-
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.customTransitioningDelegate = AlertTransitionDelegate()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        commonSetup()
-    }
-
-    private func commonSetup() {
-        self.modalPresentationStyle = .custom
-        self.transitioningDelegate = customTransitioningDelegate
-    }
 
     // MARK: - UIViewController
 
@@ -83,19 +58,6 @@ public class SettingsViewController: UIViewController {
             ])
     }
 
-    override open var preferredContentSize: CGSize {
-        set {
-        }
-        get {
-            guard let presentingSize = presentingViewController?.view.bounds.size else {
-                return super.preferredContentSize
-            }
-            let smallest = self.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-            let width = min(presentingSize.width, presentingSize.height)
-            return CGSize(width: width - 2*horizontalMargin, height: smallest.height)
-        }
-    }
-
     // MARK: - Control Actions
 
     @IBAction func blurSliderChanged(_ sender: UISlider) {
@@ -112,4 +74,3 @@ public class SettingsViewController: UIViewController {
         })
     }
 }
-
