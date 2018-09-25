@@ -12,8 +12,12 @@
 		1F9B50C0215671E400ECE00D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B50BE215671E400ECE00D /* Main.storyboard */; };
 		1F9B50C2215671E600ECE00D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B50C1215671E600ECE00D /* Assets.xcassets */; };
 		1F9B50C5215671E600ECE00D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B50C3215671E600ECE00D /* LaunchScreen.storyboard */; };
-		1F9B50D92156724500ECE00D /* UIToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B50D82156724500ECE00D /* UIToolkit.framework */; };
-		1F9B50DA2156724500ECE00D /* UIToolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B50D82156724500ECE00D /* UIToolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FC917582159CBA600AB1262 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC917562159CBA600AB1262 /* SettingsViewController.swift */; };
+		1FC917592159CBA600AB1262 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC917572159CBA600AB1262 /* Settings.storyboard */; };
+		1FEB13CF2159DB5600FD4590 /* CGUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEB13CE2159DB5600FD4590 /* CGUtils.framework */; };
+		1FEB13D52159DB7B00FD4590 /* UIToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEB13D42159DB7B00FD4590 /* UIToolkit.framework */; };
+		1FEB13D62159DB7B00FD4590 /* UIToolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEB13D42159DB7B00FD4590 /* UIToolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1FEC51A52159DA6900662292 /* CGUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B513E2156818300ECE00D /* CGUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +27,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1F9B50DA2156724500ECE00D /* UIToolkit.framework in Embed Frameworks */,
+				1FEC51A52159DA6900662292 /* CGUtils.framework in Embed Frameworks */,
+				1FEB13D62159DB7B00FD4590 /* UIToolkit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +43,11 @@
 		1F9B50C1215671E600ECE00D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F9B50C4215671E600ECE00D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F9B50C6215671E600ECE00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F9B50D82156724500ECE00D /* UIToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9B513E2156818300ECE00D /* CGUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CGUtils.framework; path = ../../Carthage/Build/iOS/CGUtils.framework; sourceTree = "<group>"; };
+		1FC917562159CBA600AB1262 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1FC917572159CBA600AB1262 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		1FEB13CE2159DB5600FD4590 /* CGUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CGUtils.framework; path = ../../Carthage/Build/iOS/CGUtils.framework; sourceTree = "<group>"; };
+		1FEB13D42159DB7B00FD4590 /* UIToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9B50D92156724500ECE00D /* UIToolkit.framework in Frameworks */,
+				1FEB13CF2159DB5600FD4590 /* CGUtils.framework in Frameworks */,
+				1FEB13D52159DB7B00FD4590 /* UIToolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +66,11 @@
 		1F9B50AE215671E400ECE00D = {
 			isa = PBXGroup;
 			children = (
-				1F9B50D82156724500ECE00D /* UIToolkit.framework */,
+				1FEB13CE2159DB5600FD4590 /* CGUtils.framework */,
+				1FEB13D42159DB7B00FD4590 /* UIToolkit.framework */,
 				1F9B50B9215671E400ECE00D /* TestBedApp */,
 				1F9B50B8215671E400ECE00D /* Products */,
+				1FEB13C92159DAB300FD4590 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				1F9B50BA215671E400ECE00D /* AppDelegate.swift */,
+				1FC917572159CBA600AB1262 /* Settings.storyboard */,
+				1FC917562159CBA600AB1262 /* SettingsViewController.swift */,
 				1F9B50BC215671E400ECE00D /* ViewController.swift */,
 				1F9B50BE215671E400ECE00D /* Main.storyboard */,
 				1F9B50C1215671E600ECE00D /* Assets.xcassets */,
@@ -81,6 +95,14 @@
 				1F9B50C6215671E600ECE00D /* Info.plist */,
 			);
 			path = TestBedApp;
+			sourceTree = "<group>";
+		};
+		1FEB13C92159DAB300FD4590 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B513E2156818300ECE00D /* CGUtils.framework */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +168,7 @@
 				1F9B50C5215671E600ECE00D /* LaunchScreen.storyboard in Resources */,
 				1F9B50C2215671E600ECE00D /* Assets.xcassets in Resources */,
 				1F9B50C0215671E400ECE00D /* Main.storyboard in Resources */,
+				1FC917592159CBA600AB1262 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +202,7 @@
 			files = (
 				1F9B50BD215671E400ECE00D /* ViewController.swift in Sources */,
 				1F9B50BB215671E400ECE00D /* AppDelegate.swift in Sources */,
+				1FC917582159CBA600AB1262 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D2D4S4F85R;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS/";
 				INFOPLIST_FILE = TestBedApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -334,6 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasmiari.TestBedApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS/";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -344,6 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D2D4S4F85R;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS/";
 				INFOPLIST_FILE = TestBedApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -352,6 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasmiari.TestBedApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS/";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

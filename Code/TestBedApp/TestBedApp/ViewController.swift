@@ -24,4 +24,12 @@ class ViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         })
     }
+
+    @IBAction func launchSettings(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        guard let settings = storyboard.instantiateInitialViewController() else {
+            fatalError("!!!")
+        }
+        present(settings, animated: true, completion: nil)
+    }
 }

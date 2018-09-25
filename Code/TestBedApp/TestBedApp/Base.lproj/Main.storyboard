@@ -24,10 +24,19 @@
                                     <action selector="launchProgress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iga-Fj-OGU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECt-N9-6HT">
+                                <rect key="frame" x="159" y="366" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="launchSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IvL-ah-iVB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ECt-N9-6HT" firstAttribute="top" secondItem="n5V-bF-EDN" secondAttribute="bottom" constant="7.5" id="6Nc-oN-OPG"/>
                             <constraint firstItem="n5V-bF-EDN" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Nyi-NA-cVF"/>
+                            <constraint firstItem="ECt-N9-6HT" firstAttribute="centerX" secondItem="n5V-bF-EDN" secondAttribute="centerX" id="PFg-Kh-mHY"/>
                             <constraint firstItem="n5V-bF-EDN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="S7p-JP-7IZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
