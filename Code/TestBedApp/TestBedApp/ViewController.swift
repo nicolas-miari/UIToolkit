@@ -25,11 +25,26 @@ class ViewController: UIViewController {
         })
     }
 
-    @IBAction func launchSettings(_ sender: Any) {
+    @IBAction func launchCompactSettings(_ sender: Any) {
+        launchSettings(contentMode: .compact(maximumWidth: 320))
+    }
+
+    @IBAction func launchExpansiveSettings(_ sender: Any) {
+        launchSettings(contentMode: .expansive)
+    }
+
+    @IBAction func launchSquareSettings(_ sender: Any) {
+        launchSettings(contentMode: .square)
+    }
+
+    private func launchSettings(contentMode: AlertViewController.ContentMode) {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        guard let settings = storyboard.instantiateInitialViewController() else {
+        guard let settings = storyboard.instantiateInitialViewController() as? SettingsViewController else {
             fatalError("!!!")
         }
+        settings.contentMode = contentMode
         present(settings, animated: true, completion: nil)
     }
+
+
 }

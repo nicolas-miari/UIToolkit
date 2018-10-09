@@ -8,11 +8,11 @@
 
 import UIKit
 
-/// Animates the transition of view controllers presented using
-/// `AlertTransitionDelegate`; essentialy mimicking that of the stock
-/// `UIAlertController`
-///
-///
+/**
+ Animates the transition of view controllers presented using
+ `AlertTransitionDelegate`; essentialy mimicking that of the stock
+ `UIAlertController` class.
+*/
 public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     ///
@@ -35,6 +35,8 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
         }
     }
 
+    /// Consider making globally configurable.
+    ///
     public var scalingFactor: CGFloat = 0.85
 
     // MARK: - Initialization
@@ -134,8 +136,9 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
         //    add that view back to the container during a dismissal operation.
 
         // Note: the "to" view is nil if the presenting view wasn't removed as
-        // a result of the presentation (as in thge non-fullscreen modal
+        // a result of the presentation (as in the non-fullscreen modal
         // presentation we are attempting), so make optional:
+        //
         if let toView = transitionContext.view(forKey: .to) {
             transitionContext.containerView.insertSubview(toView, at: 0)
         }

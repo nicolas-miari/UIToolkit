@@ -25,19 +25,37 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECt-N9-6HT">
-                                <rect key="frame" x="159" y="366" width="57" height="30"/>
-                                <state key="normal" title="Settings"/>
+                                <rect key="frame" x="120.5" y="366" width="134" height="30"/>
+                                <state key="normal" title="Settings (Compact)"/>
                                 <connections>
-                                    <action selector="launchSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IvL-ah-iVB"/>
+                                    <action selector="launchCompactSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0lk-QO-4ST"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="143-Fu-jKG">
+                                <rect key="frame" x="127.5" y="404" width="120" height="30"/>
+                                <state key="normal" title="Settings (Square)"/>
+                                <connections>
+                                    <action selector="launchSquareSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EIh-WX-nt0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djL-ST-ZrI">
+                                <rect key="frame" x="117" y="442" width="141" height="30"/>
+                                <state key="normal" title="Settings (Expansive)"/>
+                                <connections>
+                                    <action selector="launchExpansiveSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7GC-eQ-c41"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ECt-N9-6HT" firstAttribute="top" secondItem="n5V-bF-EDN" secondAttribute="bottom" constant="7.5" id="6Nc-oN-OPG"/>
+                            <constraint firstItem="143-Fu-jKG" firstAttribute="top" secondItem="ECt-N9-6HT" secondAttribute="bottom" constant="8" id="7WY-GT-78q"/>
                             <constraint firstItem="n5V-bF-EDN" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Nyi-NA-cVF"/>
                             <constraint firstItem="ECt-N9-6HT" firstAttribute="centerX" secondItem="n5V-bF-EDN" secondAttribute="centerX" id="PFg-Kh-mHY"/>
                             <constraint firstItem="n5V-bF-EDN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="S7p-JP-7IZ"/>
+                            <constraint firstItem="djL-ST-ZrI" firstAttribute="top" secondItem="143-Fu-jKG" secondAttribute="bottom" constant="8" id="fyY-1c-ldn"/>
+                            <constraint firstItem="djL-ST-ZrI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iNI-eo-nD0"/>
+                            <constraint firstItem="143-Fu-jKG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sDx-d2-KOY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
