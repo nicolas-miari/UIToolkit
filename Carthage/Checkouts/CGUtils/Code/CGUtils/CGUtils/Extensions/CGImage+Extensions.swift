@@ -9,6 +9,7 @@
 import CoreGraphics // CGImage
 import Foundation   // URL
 import ImageIO      // kCGImage...
+import UIKit
 
 public extension CGImage {
 
@@ -35,5 +36,29 @@ public extension CGImage {
 
         let downsampledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions)
         return downsampledImage
+    }
+}
+
+public extension CGImagePropertyOrientation {
+
+    var localizedDescription: String {
+        switch self {
+        case .up:
+            return "up"
+        case .upMirrored:
+            return "up mirrored"
+        case .down:
+            return "down"
+        case .downMirrored:
+            return "down mirrored"
+        case .left:
+            return "left"
+        case .leftMirrored:
+            return "left mirrored"
+        case .right:
+            return "right"
+        case .rightMirrored:
+            return "right mirrored"
+        }
     }
 }

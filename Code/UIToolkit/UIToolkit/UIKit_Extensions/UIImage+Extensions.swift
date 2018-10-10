@@ -16,11 +16,34 @@ public extension UIImage {
      to preserve aspect ratio, use `resizedToFit(_:)` instead.
     */
     public func resizedTo(_ newSize: CGSize) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: newSize)
-        let image = renderer.image { _ in
-            self.draw(in: CGRect.init(origin: CGPoint.zero, size: newSize))
+        if #available(iOSApplicationExtension 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: newSize)
+            let image = renderer.image { _ in
+                self.draw(in: CGRect.init(origin: CGPoint.zero, size: newSize))
+            }
+            return image
+
+        } else {
+            // Fallback on earlier versions
+
+            let newRect = CGRect(origin: .zero, size: newSize).integral
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+            guard let context = UIGraphicsGetCurrentContext(), let cgImage = self.cgImage else {
+                return self
+            }
+            context.interpolationQuality = .high
+            let flipVertical = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: newSize.height)
+            context.concatenate(flipVertical)
+            context.draw(cgImage, in: newRect)
+            guard let img = context.makeImage() else {
+                return self
+            }
+            let newImage = UIImage(cgImage: img)
+            UIGraphicsEndImageContext()
+
+            return newImage
         }
-        return image
+
     }
 
     /**
