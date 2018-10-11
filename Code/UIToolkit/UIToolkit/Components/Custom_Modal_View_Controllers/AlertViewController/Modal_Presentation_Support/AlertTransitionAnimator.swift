@@ -11,18 +11,12 @@ import UIKit
 /**
  Animates the transition of view controllers presented using
  `AlertTransitionDelegate`; essentialy mimicking that of the stock
- `UIAlertController` class.
+ `UIAlertController` class (with style `.alert`).
 */
 public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     ///
-    internal enum Phase {
-        case presenting
-        case dismissing
-    }
-
-    ///
-    private(set) internal var phase: Phase
+    private(set) internal var phase: AnimatedTransitionPhase
 
     /// Consider making globally configurable.
     ///
@@ -41,7 +35,7 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
 
     // MARK: - Initialization
 
-    init(phase: Phase) {
+    init(phase: AnimatedTransitionPhase) {
         self.phase = phase
     }
 

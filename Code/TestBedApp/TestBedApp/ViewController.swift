@@ -37,6 +37,14 @@ class ViewController: UIViewController {
         launchSettings(contentMode: .square)
     }
 
+    @IBAction func launchSheetSettings(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SettingsSheet", bundle: nil)
+        guard let sheet = storyboard.instantiateInitialViewController() as? SettingsSheetViewController else {
+            fatalError("!!!")
+        }
+        present(sheet, animated: true, completion: nil)
+    }
+
     private func launchSettings(contentMode: AlertViewController.ContentMode) {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
         guard let settings = storyboard.instantiateInitialViewController() as? SettingsViewController else {
@@ -45,6 +53,4 @@ class ViewController: UIViewController {
         settings.contentMode = contentMode
         present(settings, animated: true, completion: nil)
     }
-
-
 }

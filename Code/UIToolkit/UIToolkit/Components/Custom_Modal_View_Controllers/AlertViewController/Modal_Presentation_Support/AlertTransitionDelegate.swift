@@ -10,10 +10,10 @@ import UIKit
 /**
  Manages the transiiton (presentation and animation) of view controllers that
  need to be presented modally in a manner that mimicks that of the stock
- `UIAlertController`: The view controller's main view is presented at
- less-than-fullscreen size, with rounded corners and a blurred/vibrant effect
- applied to it, over an overlay background that dims the presenting view
- controller's view.
+ `UIAlertController` with the style set to `.alert.`: The view controller's main
+ view is presented at less-than-fullscreen size, with rounded corners and a
+ blurred/vibrant effect applied to it, over an overlay background that dims the
+ presenting view controller's view.
 
  Any custom view controller that sets the value of its `modalPresentationStyle`
  property to `.custom` **and** assigns an instance of this class to its

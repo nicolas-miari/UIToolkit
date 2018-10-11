@@ -1,8 +1,8 @@
 //
-//  AlertPresentationController.swift
+//  SheetPresentationController.swift
 //  UIToolkit
 //
-//  Created by Nicolás Miari on 2018/09/22.
+//  Created by Nicolás Miari on 2018/10/11.
 //  Copyright © 2018 Nicolás Miari. All rights reserved.
 //
 
@@ -10,10 +10,10 @@ import UIKit
 
 /**
  Presents arbitrary view controllers in a maner similar to the stock
- `UIAlertController`: smaller than full-screen, with the view's corners rounded
- and a dimmed background underneath.
-*/
-class AlertPresentationController: UIPresentationController {
+ `UIAlertController` with a `.sheet` style: vertically compact, peeks from the
+ bottom of the screen while dimming the presenting context slightly.
+ */
+class SheetPresentationController: UIPresentationController {
 
     fileprivate var dimmingView: UIView
 
@@ -26,9 +26,12 @@ class AlertPresentationController: UIPresentationController {
 
         let preferredSize = presentedViewController.preferredContentSize
 
+        // Whatever the preferred size is, place center horizontally, at the
+        // bottom:
+        //
         let frame = CGRect(
             x: (containerBounds.width - preferredSize.width)/2,
-            y: (containerBounds.height - preferredSize.height)/2,
+            y: (containerBounds.height - preferredSize.height),
             width: preferredSize.width,
             height: preferredSize.height)
 
@@ -40,12 +43,42 @@ class AlertPresentationController: UIPresentationController {
 
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
 
-        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.25)
+        if let sheet = presentedViewController as? ModalViewController {
+            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: sheet.dimmingOpacity)
+        } else {
+            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.125)
+        }
+
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Dismiss on background tap:
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapHandler(recognizer:)))
+        dimmingView.addGestureRecognizer(tap)
+    }
+
+    @objc func tapHandler(recognizer: UITapGestureRecognizer) {
+        presentingViewController.dismiss(animated: true, completion: nil)
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let presentedView = presentedView else {
+            return
+        }
 
+        // Size: Preserve content height, match width of container.
+        //
+        let newPresentedSize = CGSize(width: size.width, height: presentedView.frame.height)
+
+        // Position: Preserve bottom anchor.
+        //
+        let newPresentedOrigin = CGPoint(x: 0, y: size.height - presentedView.frame.height)
+        let newFrame = CGRect(origin: newPresentedOrigin, size: newPresentedSize)
+
+        coordinator.animate(alongsideTransition: { (_) in
+            presentedView.frame = newFrame
+
+        }, completion: {(_) in
+        })
     }
 
     override func presentationTransitionWillBegin() {
@@ -56,7 +89,8 @@ class AlertPresentationController: UIPresentationController {
         }
 
         // Style the content view:
-        self.presentedView?.layer.cornerRadius = 9
+        //self.presentedView?.clipsToBounds = true
+        //self.presentedView?.layer.cornerRadius = 9
         self.presentedView?.layer.shadowColor = UIColor.black.cgColor
         self.presentedView?.layer.shadowRadius = 20
         self.presentedView?.layer.shadowOpacity = 0.3

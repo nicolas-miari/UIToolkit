@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F683F81216EEA0A0043D0C5 /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F80216EEA0A0043D0C5 /* SheetViewController.swift */; };
+		1F683F84216EEA870043D0C5 /* SheetTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F83216EEA870043D0C5 /* SheetTransitionAnimator.swift */; };
+		1F683F8A216EECD00043D0C5 /* SheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F89216EECD00043D0C5 /* SheetPresentationController.swift */; };
+		1F683F8C216EEE620043D0C5 /* SheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F8B216EEE620043D0C5 /* SheetTransitionDelegate.swift */; };
+		1F683F93216F2DB80043D0C5 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F92216F2DB80043D0C5 /* ModalTransition.swift */; };
+		1F683F95216F34370043D0C5 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F94216F34370043D0C5 /* ModalViewController.swift */; };
 		1F9B50A8215671B500ECE00D /* UIToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F9B50A6215671B500ECE00D /* UIToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F9B50FE215672B400ECE00D /* ProgressViewControllerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B50F7215672B400ECE00D /* ProgressViewControllerStyle.swift */; };
 		1F9B50FF215672B400ECE00D /* ProgressViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B50F8215672B400ECE00D /* ProgressViewControllerLayout.swift */; };
@@ -22,6 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F683F80216EEA0A0043D0C5 /* SheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
+		1F683F83216EEA870043D0C5 /* SheetTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTransitionAnimator.swift; sourceTree = "<group>"; };
+		1F683F89216EECD00043D0C5 /* SheetPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentationController.swift; sourceTree = "<group>"; };
+		1F683F8B216EEE620043D0C5 /* SheetTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTransitionDelegate.swift; sourceTree = "<group>"; };
+		1F683F92216F2DB80043D0C5 /* ModalTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
+		1F683F94216F34370043D0C5 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		1F9B50A3215671B500ECE00D /* UIToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B50A6215671B500ECE00D /* UIToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIToolkit.h; sourceTree = "<group>"; };
 		1F9B50A7215671B500ECE00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +64,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F683F7F216EE9F50043D0C5 /* SheetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F683F80216EEA0A0043D0C5 /* SheetViewController.swift */,
+				1F683F82216EEA630043D0C5 /* Modal_Presentation_Support */,
+			);
+			path = SheetViewController;
+			sourceTree = "<group>";
+		};
+		1F683F82216EEA630043D0C5 /* Modal_Presentation_Support */ = {
+			isa = PBXGroup;
+			children = (
+				1F683F83216EEA870043D0C5 /* SheetTransitionAnimator.swift */,
+				1F683F8B216EEE620043D0C5 /* SheetTransitionDelegate.swift */,
+				1F683F89216EECD00043D0C5 /* SheetPresentationController.swift */,
+			);
+			path = Modal_Presentation_Support;
+			sourceTree = "<group>";
+		};
+		1F683F85216EEB7C0043D0C5 /* Custom_Modal_View_Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F683F91216F2D980043D0C5 /* Common */,
+				1F683F7F216EE9F50043D0C5 /* SheetViewController */,
+				1FEB13D92159DF2E00FD4590 /* AlertViewController */,
+				1F9B50F5215672B400ECE00D /* ProgressViewController */,
+			);
+			path = Custom_Modal_View_Controllers;
+			sourceTree = "<group>";
+		};
+		1F683F91216F2D980043D0C5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1F683F92216F2DB80043D0C5 /* ModalTransition.swift */,
+				1F683F94216F34370043D0C5 /* ModalViewController.swift */,
+			);
+			name = Common;
+			path = XCommon;
+			sourceTree = "<group>";
+		};
 		1F9B5099215671B500ECE00D = {
 			isa = PBXGroup;
 			children = (
@@ -123,8 +175,7 @@
 		1F9B51092156790D00ECE00D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				1FEB13D92159DF2E00FD4590 /* AlertViewController */,
-				1F9B50F5215672B400ECE00D /* ProgressViewController */,
+				1F683F85216EEB7C0043D0C5 /* Custom_Modal_View_Controllers */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -246,10 +297,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F683F95216F34370043D0C5 /* ModalViewController.swift in Sources */,
+				1F683F93216F2DB80043D0C5 /* ModalTransition.swift in Sources */,
 				1F9B5100215672B400ECE00D /* ProgressViewController.swift in Sources */,
 				1F9B50FE215672B400ECE00D /* ProgressViewControllerStyle.swift in Sources */,
+				1F683F81216EEA0A0043D0C5 /* SheetViewController.swift in Sources */,
+				1F683F8A216EECD00043D0C5 /* SheetPresentationController.swift in Sources */,
+				1F683F84216EEA870043D0C5 /* SheetTransitionAnimator.swift in Sources */,
 				1F9B5102215672B400ECE00D /* AlertTransitionDelegate.swift in Sources */,
 				1FEB13DB2159DF4E00FD4590 /* AlertViewController.swift in Sources */,
+				1F683F8C216EEE620043D0C5 /* SheetTransitionDelegate.swift in Sources */,
 				1F9B510F2156797C00ECE00D /* UIImageView+Extensions.swift in Sources */,
 				1F9B510D2156797C00ECE00D /* UIImage+Extensions.swift in Sources */,
 				1F9B510E2156797C00ECE00D /* UIViewController+Extensions.swift in Sources */,

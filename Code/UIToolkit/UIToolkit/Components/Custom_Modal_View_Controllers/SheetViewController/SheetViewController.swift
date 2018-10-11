@@ -1,0 +1,53 @@
+//
+//  SheetViewController.swift
+//  UIToolkit
+//
+//  Created by Nicolás Miari on 2018/10/11.
+//  Copyright © 2018 Nicolás Miari. All rights reserved.
+//
+
+import UIKit
+
+/**
+ Implements a custom modal presentation style reminiscent of UIAlertController
+ with `.sheet` style.
+ */
+open class SheetViewController: ModalViewController {
+
+    private static let transitionDelegate = SheetTransitionDelegate()
+
+    // MARK: - UIViewController
+
+    override open var preferredContentSize: CGSize {
+        set {
+        }
+        get {
+            guard let presentingSize = presentingViewController?.view.bounds.size else {
+                return super.preferredContentSize
+            }
+
+            self.view.layoutIfNeeded()
+            let compressedSize = self.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            let compressedHeight = compressedSize.height
+
+            return CGSize(width: presentingSize.width, height: compressedHeight)
+        }
+    }
+
+    // MARK: - Initialization
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonSetup()
+    }
+
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        commonSetup()
+    }
+
+    private func commonSetup() {
+        self.modalPresentationStyle = .custom
+        self.transitioningDelegate = SheetViewController.transitionDelegate
+    }
+}

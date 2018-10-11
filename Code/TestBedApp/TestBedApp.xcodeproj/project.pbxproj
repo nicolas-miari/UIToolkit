@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F683F8E216EEF240043D0C5 /* SettingsSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F683F8D216EEF240043D0C5 /* SettingsSheet.storyboard */; };
+		1F683F90216EF1010043D0C5 /* SettingsSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F8F216EF1010043D0C5 /* SettingsSheetViewController.swift */; };
 		1F9B50BB215671E400ECE00D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B50BA215671E400ECE00D /* AppDelegate.swift */; };
 		1F9B50BD215671E400ECE00D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B50BC215671E400ECE00D /* ViewController.swift */; };
 		1F9B50C0215671E400ECE00D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B50BE215671E400ECE00D /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F683F8D216EEF240043D0C5 /* SettingsSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsSheet.storyboard; sourceTree = "<group>"; };
+		1F683F8F216EF1010043D0C5 /* SettingsSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheetViewController.swift; sourceTree = "<group>"; };
 		1F9B50B7215671E400ECE00D /* TestBedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B50BA215671E400ECE00D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F9B50BC215671E400ECE00D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				1F9B50BA215671E400ECE00D /* AppDelegate.swift */,
+				1F683F8D216EEF240043D0C5 /* SettingsSheet.storyboard */,
+				1F683F8F216EF1010043D0C5 /* SettingsSheetViewController.swift */,
 				1FC917572159CBA600AB1262 /* Settings.storyboard */,
 				1FC917562159CBA600AB1262 /* SettingsViewController.swift */,
 				1F9B50BC215671E400ECE00D /* ViewController.swift */,
@@ -165,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F683F8E216EEF240043D0C5 /* SettingsSheet.storyboard in Resources */,
 				1F9B50C5215671E600ECE00D /* LaunchScreen.storyboard in Resources */,
 				1F9B50C2215671E600ECE00D /* Assets.xcassets in Resources */,
 				1F9B50C0215671E400ECE00D /* Main.storyboard in Resources */,
@@ -203,6 +210,7 @@
 				1F9B50BD215671E400ECE00D /* ViewController.swift in Sources */,
 				1F9B50BB215671E400ECE00D /* AppDelegate.swift in Sources */,
 				1FC917582159CBA600AB1262 /* SettingsViewController.swift in Sources */,
+				1F683F90216EF1010043D0C5 /* SettingsSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

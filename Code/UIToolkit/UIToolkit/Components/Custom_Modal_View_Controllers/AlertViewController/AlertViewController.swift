@@ -9,9 +9,16 @@
 import UIKit
 
 /**
- Implements a custom modal presentation style reminiscent of UIAlertController.
+ Implements a custom modal presentation style reminiscent of UIAlertController
+ with `.alert` style.
  */
-open class AlertViewController: UIViewController {
+open class AlertViewController: ModalViewController {
+
+    // MARK: -
+
+    private static let transitionDelegate = AlertTransitionDelegate()
+
+    // MARK: -
 
     public enum ContentMode {
         /**
@@ -46,10 +53,14 @@ open class AlertViewController: UIViewController {
      */
     public var contentMode: ContentMode = .compact(maximumWidth: 320)
 
-    ///
+    /**
+     In Points. Default is 30.
+     */
     public var horizontalMargin: CGFloat = 30
 
-    ///
+    /**
+     In Points. Default is 40.
+     */
     public var verticalMargin: CGFloat = 40
 
     /**
@@ -68,9 +79,11 @@ open class AlertViewController: UIViewController {
     */
     public var offscreenScaleFactor: CGFloat = 0.8 {
         didSet {
-
+            // Implement!
         }
     }
+
+    // MARK: - UIViewController
 
     ///
     override open var preferredContentSize: CGSize {
@@ -111,11 +124,7 @@ open class AlertViewController: UIViewController {
         }
     }
 
-    // MARK: -
-
-    private static let transitionDelegate = AlertTransitionDelegate()
-
-    // MARK: -
+    // MARK: - Initialization
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
