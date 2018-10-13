@@ -13,6 +13,8 @@
 		1F683F8C216EEE620043D0C5 /* SheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F8B216EEE620043D0C5 /* SheetTransitionDelegate.swift */; };
 		1F683F93216F2DB80043D0C5 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F92216F2DB80043D0C5 /* ModalTransition.swift */; };
 		1F683F95216F34370043D0C5 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F683F94216F34370043D0C5 /* ModalViewController.swift */; };
+		1F7FFBF521719C0300A526DA /* MaskedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFBF321719C0300A526DA /* MaskedNavigationController.swift */; };
+		1F7FFBF621719C0300A526DA /* MaskedTransitionAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FFBF421719C0300A526DA /* MaskedTransitionAnimationController.swift */; };
 		1F9B50A8215671B500ECE00D /* UIToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F9B50A6215671B500ECE00D /* UIToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F9B50FE215672B400ECE00D /* ProgressViewControllerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B50F7215672B400ECE00D /* ProgressViewControllerStyle.swift */; };
 		1F9B50FF215672B400ECE00D /* ProgressViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B50F8215672B400ECE00D /* ProgressViewControllerLayout.swift */; };
@@ -34,6 +36,8 @@
 		1F683F8B216EEE620043D0C5 /* SheetTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTransitionDelegate.swift; sourceTree = "<group>"; };
 		1F683F92216F2DB80043D0C5 /* ModalTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		1F683F94216F34370043D0C5 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		1F7FFBF321719C0300A526DA /* MaskedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskedNavigationController.swift; sourceTree = "<group>"; };
+		1F7FFBF421719C0300A526DA /* MaskedTransitionAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskedTransitionAnimationController.swift; sourceTree = "<group>"; };
 		1F9B50A3215671B500ECE00D /* UIToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B50A6215671B500ECE00D /* UIToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIToolkit.h; sourceTree = "<group>"; };
 		1F9B50A7215671B500ECE00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +106,23 @@
 			);
 			name = Common;
 			path = XCommon;
+			sourceTree = "<group>";
+		};
+		1F7FFBF121719C0300A526DA /* Custom_Navigation_Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F7FFBF221719C0300A526DA /* MaskedNavigationController */,
+			);
+			path = Custom_Navigation_Controllers;
+			sourceTree = "<group>";
+		};
+		1F7FFBF221719C0300A526DA /* MaskedNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				1F7FFBF321719C0300A526DA /* MaskedNavigationController.swift */,
+				1F7FFBF421719C0300A526DA /* MaskedTransitionAnimationController.swift */,
+			);
+			path = MaskedNavigationController;
 			sourceTree = "<group>";
 		};
 		1F9B5099215671B500ECE00D = {
@@ -175,6 +196,7 @@
 		1F9B51092156790D00ECE00D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1F7FFBF121719C0300A526DA /* Custom_Navigation_Controllers */,
 				1F683F85216EEB7C0043D0C5 /* Custom_Modal_View_Controllers */,
 			);
 			path = Components;
@@ -297,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7FFBF621719C0300A526DA /* MaskedTransitionAnimationController.swift in Sources */,
 				1F683F95216F34370043D0C5 /* ModalViewController.swift in Sources */,
 				1F683F93216F2DB80043D0C5 /* ModalTransition.swift in Sources */,
 				1F9B5100215672B400ECE00D /* ProgressViewController.swift in Sources */,
@@ -311,6 +334,7 @@
 				1F9B510D2156797C00ECE00D /* UIImage+Extensions.swift in Sources */,
 				1F9B510E2156797C00ECE00D /* UIViewController+Extensions.swift in Sources */,
 				1F9B5101215672B400ECE00D /* AlertTransitionAnimator.swift in Sources */,
+				1F7FFBF521719C0300A526DA /* MaskedNavigationController.swift in Sources */,
 				1F9B5103215672B400ECE00D /* AlertPresentationController.swift in Sources */,
 				1F9B50FF215672B400ECE00D /* ProgressViewControllerLayout.swift in Sources */,
 			);
@@ -455,7 +479,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS";
 				INFOPLIST_FILE = UIToolkit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,7 +507,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS";
 				INFOPLIST_FILE = UIToolkit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
