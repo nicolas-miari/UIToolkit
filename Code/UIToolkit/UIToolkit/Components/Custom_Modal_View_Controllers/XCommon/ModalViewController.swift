@@ -9,6 +9,8 @@
 import UIKit
 
 /**
+ - todo: Consider making a protocol, so it can be adopted by (e.g.) subclasses
+ of UITableViewController, etc.
  */
 open class ModalViewController: UIViewController, AnimatedTransitionable {
 

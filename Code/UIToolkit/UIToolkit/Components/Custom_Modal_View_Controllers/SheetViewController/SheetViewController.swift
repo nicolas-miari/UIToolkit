@@ -16,6 +16,14 @@ open class SheetViewController: ModalViewController {
 
     private static let transitionDelegate = SheetTransitionDelegate()
 
+    // MARK: -
+
+    /**
+     Executed once when a tap to dismiss is detected on the dimming view, right
+     before the dismissal transition.
+     */
+    public var dismissHandler: (() -> Void)?
+
     // MARK: - UIViewController
 
     override open var preferredContentSize: CGSize {

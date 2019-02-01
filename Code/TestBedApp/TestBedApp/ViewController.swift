@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         guard let sheet = storyboard.instantiateInitialViewController() as? SettingsSheetViewController else {
             fatalError("!!!")
         }
+
+        sheet.dismissHandler = {
+            print("Dismissing!")
+        }
         present(sheet, animated: true, completion: nil)
     }
 

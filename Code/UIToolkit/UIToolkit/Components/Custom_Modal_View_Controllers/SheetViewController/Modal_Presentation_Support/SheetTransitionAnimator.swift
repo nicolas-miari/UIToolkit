@@ -145,6 +145,10 @@ class SheetTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.containerView.insertSubview(toView, at: 0)
         }
 
+        if let sheetViewController = transitionContext.viewController(forKey: .from) as? SheetViewController {
+            sheetViewController.dismissHandler?()
+        }
+
         // 4. Animate.
         //
 

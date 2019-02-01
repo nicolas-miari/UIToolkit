@@ -89,8 +89,6 @@ class SheetPresentationController: UIPresentationController {
         }
 
         // Style the content view:
-        //self.presentedView?.clipsToBounds = true
-        //self.presentedView?.layer.cornerRadius = 9
         self.presentedView?.layer.shadowColor = UIColor.black.cgColor
         self.presentedView?.layer.shadowRadius = 20
         self.presentedView?.layer.shadowOpacity = 0.3
