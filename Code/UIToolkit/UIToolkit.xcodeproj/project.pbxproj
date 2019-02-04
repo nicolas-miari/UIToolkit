@@ -25,6 +25,7 @@
 		1F9B510D2156797C00ECE00D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B510A2156797C00ECE00D /* UIImage+Extensions.swift */; };
 		1F9B510E2156797C00ECE00D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B510B2156797C00ECE00D /* UIViewController+Extensions.swift */; };
 		1F9B510F2156797C00ECE00D /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B510C2156797C00ECE00D /* UIImageView+Extensions.swift */; };
+		1FB80F3022080A9D002A30BF /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB80F2F22080A9D002A30BF /* UIAlertController+Extensions.swift */; };
 		1FC9175A2159CCE300AB1262 /* CGUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B513E2156818300ECE00D /* CGUtils.framework */; };
 		1FEB13DB2159DF4E00FD4590 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB13DA2159DF4E00FD4590 /* AlertViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		1F9B510C2156797C00ECE00D /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		1F9B513C21567DB100ECE00D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../../../Cartfile; sourceTree = "<group>"; };
 		1F9B513E2156818300ECE00D /* CGUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CGUtils.framework; path = ../../Carthage/Build/iOS/CGUtils.framework; sourceTree = "<group>"; };
+		1FB80F2F22080A9D002A30BF /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		1FEB13DA2159DF4E00FD4590 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				1F9B510A2156797C00ECE00D /* UIImage+Extensions.swift */,
 				1F9B510C2156797C00ECE00D /* UIImageView+Extensions.swift */,
 				1F9B510B2156797C00ECE00D /* UIViewController+Extensions.swift */,
+				1FB80F2F22080A9D002A30BF /* UIAlertController+Extensions.swift */,
 			);
 			path = UIKit_Extensions;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				1F7FFBF621719C0300A526DA /* MaskedTransitionAnimationController.swift in Sources */,
 				1F683F95216F34370043D0C5 /* ModalViewController.swift in Sources */,
+				1FB80F3022080A9D002A30BF /* UIAlertController+Extensions.swift in Sources */,
 				1F683F93216F2DB80043D0C5 /* ModalTransition.swift in Sources */,
 				1F9B5100215672B400ECE00D /* ProgressViewController.swift in Sources */,
 				1F9B50FE215672B400ECE00D /* ProgressViewControllerStyle.swift in Sources */,
