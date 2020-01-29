@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CGUtils",
+        "repositoryURL": "https://github.com/nicolas-miari/CGUtils",
+        "state": {
+          "branch": null,
+          "revision": "d8baef1bf731db93b5c95a390c80473f99c58ae9",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
