@@ -44,7 +44,7 @@ open class ProgressViewController: UIViewController {
     required public init(
         message: String? = nil,
         layout: ProgressViewControllerLayout = .activityIndicatorAlone,
-        style: ProgressViewControllerStyle = .darkContent) {
+        style: ProgressViewControllerStyle = .auto) {
 
         self.message = message
 
