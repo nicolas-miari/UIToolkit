@@ -8,22 +8,22 @@
 
 import UIKit
 
-/// To use, simply present modally like any other view controller (e.g.
-/// `UIAlertController`). Custom modal presentation is provided by supporting
-/// classes.
-///
+/**
+ To use, simply present modally like any other view controller (e.g. `UIAlertController`). Custom modal
+ presentation is provided by supporting classes.
+ */
 open class ProgressViewController: UIViewController {
-    // Because `UIViewController.transitioningDelegate` is a **weak** property,
-    // we need this additional reference to hold to it strongly and prevent
-    // premature deallocation.
-    // Alternatives would be:
-    //   1. Making the delegate a singleton (bad!), or
-    //   2. Making the view controller adopt the protocol and double as its
-    //      own transition delegate (inelegant?)
-    //
+    /*
+     Because `UIViewController.transitioningDelegate` is a **weak** property,
+     we need this additional reference to hold to it strongly and prevent
+     premature deallocation.
+
+     Alternatives would be:
+       1. Making the delegate a singleton (bad!), or
+       2. Making the view controller adopt the protocol and double as its own transition delegate (inelegant?)
+     */
     // swiftlint:disable weak_delegate
     private let customTransitioningDelegate: AlertTransitionDelegate
-
     // swiftlint:enable weak_delegate
 
     public let message: String?
@@ -38,15 +38,15 @@ open class ProgressViewController: UIViewController {
 
     // MARK: - Initialization
 
-    /// All arguments have sensible defaults.
-    ///
+    /**
+     All arguments have sensible defaults.
+     */
     required public init(
         message: String? = nil,
         layout: ProgressViewControllerLayout = .activityIndicatorAlone,
         style: ProgressViewControllerStyle = .darkContent) {
 
         self.message = message
-        //self.layout = layout
 
         if message == nil {
             switch layout {
@@ -94,8 +94,14 @@ open class ProgressViewController: UIViewController {
             view.backgroundColor = .white
         case .lightContent:
             view.backgroundColor = .black
-        }
 
+        case .auto:
+            if #available(iOS 13, *) {
+                view.backgroundColor = UIColor.systemBackground
+            } else {
+                view.backgroundColor = .white
+            }
+        }
         view.backgroundColor = .clear
         view.clipsToBounds = true
 
@@ -108,6 +114,20 @@ open class ProgressViewController: UIViewController {
                 return UIBlurEffect(style: .extraLight)
             case .lightContent:
                 return UIBlurEffect(style: .dark)
+
+            case .auto:
+                if #available(iOS 13, *) {
+                    switch traitCollection.userInterfaceStyle {
+                    case .dark:
+                        return UIBlurEffect(style: .dark)
+                    case .light, .unspecified:
+                        return UIBlurEffect(style: .extraLight)
+                    @unknown default:
+                        return UIBlurEffect(style: .extraLight)
+                    }
+                } else {
+                    return UIBlurEffect(style: .extraLight)
+                }
             }
         }()
 
@@ -135,7 +155,7 @@ open class ProgressViewController: UIViewController {
                 NSLayoutConstraint(item: indicator, attribute: .left, relatedBy: .equal, toItem: blurView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
                 NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
                 NSLayoutConstraint(item: indicator, attribute: .right, relatedBy: .equal, toItem: blurView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin)
-                ])
+            ])
 
         case .activityIndicatorAboveLabel:
             let indicator = activityIndicatorView(style: style, layout: layout)
@@ -153,7 +173,7 @@ open class ProgressViewController: UIViewController {
                 NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
 
                 NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .topMargin, multiplier: 1, constant: -margin)
-                ])
+            ])
 
         case .activityIndicatorLeftOfLabel:
             let indicator = activityIndicatorView(style: style, layout: layout)
@@ -172,7 +192,7 @@ open class ProgressViewController: UIViewController {
                 NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: blurView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin),
 
                 NSLayoutConstraint(item: indicator, attribute: .right, relatedBy: .equal, toItem: label, attribute: .left, multiplier: 1, constant: -margin)
-                ])
+            ])
 
         case .progressAboveLabel:
             // WIP...
@@ -192,7 +212,7 @@ open class ProgressViewController: UIViewController {
                 NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: 0),
 
                 NSLayoutConstraint(item: progress, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .topMargin, multiplier: 1, constant: -8)
-                ])
+            ])
 
         default:
             break
@@ -217,16 +237,8 @@ open class ProgressViewController: UIViewController {
     }
 
     func activityIndicatorView(style: ProgressViewControllerStyle, layout: ProgressViewControllerLayout) -> UIActivityIndicatorView {
-
-        let indicator: UIActivityIndicatorView = {
-            switch layout {
-            case ProgressViewControllerLayout.activityIndicatorAlone:
-                return UIActivityIndicatorView(style: .whiteLarge)
-            default:
-                return UIActivityIndicatorView(style: .white)
-            }
-        }()
-        indicator.color = style.contentColor
+        let indicator = UIActivityIndicatorView(style: .whiteLarge)
+        indicator.color = contentColor
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.startAnimating()
         return indicator
@@ -236,10 +248,34 @@ open class ProgressViewController: UIViewController {
         let label = UILabel(frame: CGRect.zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = style.contentColor
+        label.textColor = contentColor
         label.text = text
         label.sizeToFit()
 
         return label
+    }
+
+    private var contentColor: UIColor {
+        switch style {
+        case .darkContent:
+            return .darkGray
+
+        case .lightContent:
+            return .white
+
+        case .auto:
+            if #available(iOS 13.0, *) {
+                /*
+                 Use semantic color that automatically adapts to the trait collection's
+                 user interface style:
+                 */
+                return UIColor.label
+            } else {
+                /*
+                 Assume light mode always (same as .darkContent):
+                 */
+                return .darkGray
+            }
+        }
     }
 }
