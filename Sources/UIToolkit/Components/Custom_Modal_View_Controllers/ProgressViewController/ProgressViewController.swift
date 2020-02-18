@@ -28,6 +28,8 @@ open class ProgressViewController: UIViewController {
 
     public let message: String?
 
+    public var textSize: CGFloat = 15
+
     ///
     public let style: ProgressViewControllerStyle
 
@@ -247,7 +249,7 @@ open class ProgressViewController: UIViewController {
     func label(text: String, style: ProgressViewControllerStyle) -> UILabel {
         let label = UILabel(frame: CGRect.zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.boldSystemFont(ofSize: textSize)
         label.textColor = contentColor
         label.text = text
         label.sizeToFit()
