@@ -135,7 +135,7 @@ open class ProgressViewController: UIViewController, ModalPresentable {
         view.insertSubview(blurView, at: 0)
 
         // Use a dedicated blur effect for the vibrancy view, see here: https://stackoverflow.com/a/26308317/433373
-        let vibrancyBlurEffect = UIBlurEffect(style: .dark)
+        let vibrancyBlurEffect = UIBlurEffect(style: .prominent)
         let vibrancyEffect = UIVibrancyEffect(blurEffect: vibrancyBlurEffect)
 
         let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
