@@ -135,10 +135,10 @@ open class ProgressViewController: UIViewController, ModalPresentable {
         view.insertSubview(blurView, at: 0)
 
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+
         let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
         vibrancyView.translatesAutoresizingMaskIntoConstraints = false
         blurView.contentView.addSubview(vibrancyView)
-
 
         NSLayoutConstraint.activate([
             blurView.leftAnchor.constraint(equalTo: view.leftAnchor),
