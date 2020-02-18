@@ -100,20 +100,7 @@ open class ProgressViewController: UIViewController, ModalPresentable {
         // View was created programmatically; disable autoresizing masks:
         self.view.translatesAutoresizingMaskIntoConstraints = false
 
-        switch style {
-        case .darkContent:
-            view.backgroundColor = .white
-        case .lightContent:
-            view.backgroundColor = .black
-
-        case .auto:
-            if #available(iOS 13, *) {
-                view.backgroundColor = UIColor.systemBackground
-            } else {
-                view.backgroundColor = .white
-            }
-        }
-        //view.backgroundColor = .clear
+        view.backgroundColor = .clear
         view.clipsToBounds = true
 
         // Tutorial on effect views:
@@ -145,63 +132,75 @@ open class ProgressViewController: UIViewController, ModalPresentable {
 
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
-
         view.insertSubview(blurView, at: 0)
+
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyView.translatesAutoresizingMaskIntoConstraints = false
+        blurView.contentView.addSubview(vibrancyView)
+
 
         NSLayoutConstraint.activate([
             blurView.leftAnchor.constraint(equalTo: view.leftAnchor),
             blurView.rightAnchor.constraint(equalTo: view.rightAnchor),
             blurView.topAnchor.constraint(equalTo: view.topAnchor),
             blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
+        ])
+
+        NSLayoutConstraint.activate([
+            vibrancyView.heightAnchor.constraint(equalTo: blurView.contentView.heightAnchor),
+            vibrancyView.widthAnchor.constraint(equalTo: blurView.contentView.widthAnchor),
+            vibrancyView.centerXAnchor.constraint(equalTo: blurView.contentView.centerXAnchor),
+            vibrancyView.centerYAnchor.constraint(equalTo: blurView.contentView.centerYAnchor)
+        ])
 
         switch layout {
         case .activityIndicatorAlone:
             let indicator = activityIndicatorView(style: style, layout: layout)
-            blurView.contentView.addSubview(indicator)
+            vibrancyView.contentView.addSubview(indicator)
 
             indicator.startAnimating()
 
             NSLayoutConstraint.activate([
-                NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: blurView.contentView, attribute: .topMargin, multiplier: 1, constant: margin),
-                NSLayoutConstraint(item: indicator, attribute: .left, relatedBy: .equal, toItem: blurView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
-                NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
-                NSLayoutConstraint(item: indicator, attribute: .right, relatedBy: .equal, toItem: blurView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin)
+                NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .topMargin, multiplier: 1, constant: margin),
+                NSLayoutConstraint(item: indicator, attribute: .left, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
+                NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
+                NSLayoutConstraint(item: indicator, attribute: .right, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin)
             ])
 
         case .activityIndicatorAboveLabel:
             let indicator = activityIndicatorView(style: style, layout: layout)
-            blurView.contentView.addSubview(indicator)
+            vibrancyView.contentView.addSubview(indicator)
 
             let label = self.label(text: message ?? "", style: style)
-            blurView.contentView.addSubview(label)
+            vibrancyView.contentView.addSubview(label)
 
             NSLayoutConstraint.activate([
-                NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: blurView.contentView, attribute: .topMargin, multiplier: 1, constant: margin),
-                NSLayoutConstraint(item: indicator, attribute: .centerX, relatedBy: .equal, toItem: blurView.contentView, attribute: .centerX, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .topMargin, multiplier: 1, constant: margin),
+                NSLayoutConstraint(item: indicator, attribute: .centerX, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .centerX, multiplier: 1, constant: 0),
 
-                NSLayoutConstraint(item: label, attribute: .left, relatedBy: .equal, toItem: blurView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
-                NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: blurView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin),
-                NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
+                NSLayoutConstraint(item: label, attribute: .left, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
+                NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin),
+                NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
 
                 NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .topMargin, multiplier: 1, constant: -margin)
             ])
 
         case .activityIndicatorLeftOfLabel:
             let indicator = activityIndicatorView(style: style, layout: layout)
-            blurView.contentView.addSubview(indicator)
+            vibrancyView.contentView.addSubview(indicator)
 
             let label = self.label(text: message ?? "", style: style)
-            blurView.contentView.addSubview(label)
+            vibrancyView.contentView.addSubview(label)
 
             NSLayoutConstraint.activate([
 
-                NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: blurView.contentView, attribute: .topMargin, multiplier: 1, constant: margin),
-                NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
-                NSLayoutConstraint(item: indicator, attribute: .left, relatedBy: .equal, toItem: blurView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
+                NSLayoutConstraint(item: indicator, attribute: .top, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .topMargin, multiplier: 1, constant: margin),
+                NSLayoutConstraint(item: indicator, attribute: .bottom, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .bottomMargin, multiplier: 1, constant: -margin),
+                NSLayoutConstraint(item: indicator, attribute: .left, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .leftMargin, multiplier: 1, constant: margin),
 
-                NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: blurView.contentView, attribute: .centerY, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: blurView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin),
+                NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .centerY, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .rightMargin, multiplier: 1, constant: -margin),
 
                 NSLayoutConstraint(item: indicator, attribute: .right, relatedBy: .equal, toItem: label, attribute: .left, multiplier: 1, constant: -margin)
             ])
@@ -209,19 +208,19 @@ open class ProgressViewController: UIViewController, ModalPresentable {
         case .progressAboveLabel:
             // WIP...
             let progress = progressView()
-            blurView.contentView.addSubview(progress)
+            vibrancyView.contentView.addSubview(progress)
 
             let label = self.label(text: message ?? "", style: style)
-            blurView.contentView.addSubview(label)
+            vibrancyView.contentView.addSubview(label)
 
             NSLayoutConstraint.activate([
 
-                NSLayoutConstraint(item: progress, attribute: .top, relatedBy: .equal, toItem: blurView.contentView, attribute: .topMargin, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: progress, attribute: .centerX, relatedBy: .equal, toItem: blurView.contentView, attribute: .centerX, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: progress, attribute: .top, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .topMargin, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: progress, attribute: .centerX, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .centerX, multiplier: 1, constant: 0),
 
-                NSLayoutConstraint(item: label, attribute: .left, relatedBy: .equal, toItem: blurView.contentView, attribute: .leftMargin, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: blurView.contentView, attribute: .rightMargin, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: blurView.contentView, attribute: .bottomMargin, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: label, attribute: .left, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .leftMargin, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .rightMargin, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: vibrancyView.contentView, attribute: .bottomMargin, multiplier: 1, constant: 0),
 
                 NSLayoutConstraint(item: progress, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .topMargin, multiplier: 1, constant: -8)
             ])
