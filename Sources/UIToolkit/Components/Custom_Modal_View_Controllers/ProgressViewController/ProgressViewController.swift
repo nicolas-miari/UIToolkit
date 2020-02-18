@@ -134,7 +134,9 @@ open class ProgressViewController: UIViewController, ModalPresentable {
         blurView.translatesAutoresizingMaskIntoConstraints = false
         view.insertSubview(blurView, at: 0)
 
-        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        // Use a dedicated blur effect for the vibrancy view, see here: https://stackoverflow.com/a/26308317/433373
+        let vibrancyBlurEffect = UIBlurEffect(style: .light)
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: vibrancyBlurEffect)
 
         let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
         vibrancyView.translatesAutoresizingMaskIntoConstraints = false
