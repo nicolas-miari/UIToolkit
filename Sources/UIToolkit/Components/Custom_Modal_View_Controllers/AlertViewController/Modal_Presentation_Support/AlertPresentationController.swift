@@ -42,16 +42,15 @@ class AlertPresentationController: UIPresentationController {
 
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
 
-        if let alert = presentedViewController as? ModalViewController {
+        if let alert = presentedViewController as? ModalPresentable {
             dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alert.dimmingOpacity)
         } else {
-            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.25)
+            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
         }
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
     }
 
     override func presentationTransitionWillBegin() {
@@ -77,7 +76,7 @@ class AlertPresentationController: UIPresentationController {
             dimmingView.rightAnchor.constraint(equalTo: container.rightAnchor),
             dimmingView.topAnchor.constraint(equalTo: container.topAnchor),
             dimmingView.bottomAnchor.constraint(equalTo: container.bottomAnchor)
-            ])
+        ])
 
         if let coordinator = presentedViewController.transitionCoordinator {
             coordinator.animate(alongsideTransition: { (_) in

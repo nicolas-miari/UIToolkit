@@ -12,7 +12,7 @@ import UIKit
  To use, simply present modally like any other view controller (e.g. `UIAlertController`). Custom modal
  presentation is provided by supporting classes.
  */
-open class ProgressViewController: UIViewController {
+open class ProgressViewController: UIViewController, ModalPresentable {
     /*
      Because `UIViewController.transitioningDelegate` is a **weak** property,
      we need this additional reference to hold to it strongly and prevent
@@ -36,7 +36,16 @@ open class ProgressViewController: UIViewController {
     ///
     public let layout: ProgressViewControllerLayout
 
+    ///
     private let margin: CGFloat = 16
+
+    // MARK: - ModalPresentable
+
+    public var dimmingOpacity: CGFloat = ModalPresentableDefaults.dimmingOpacity
+
+    public var presentationDuration: TimeInterval = ModalPresentableDefaults.presentationDuration
+
+    public var dismissalDuration: TimeInterval = ModalPresentableDefaults.dismissalDuration
 
     // MARK: - Initialization
 
@@ -104,7 +113,7 @@ open class ProgressViewController: UIViewController {
                 view.backgroundColor = .white
             }
         }
-        view.backgroundColor = .clear
+        //view.backgroundColor = .clear
         view.clipsToBounds = true
 
         // Tutorial on effect views:
@@ -114,6 +123,7 @@ open class ProgressViewController: UIViewController {
             switch style {
             case .darkContent:
                 return UIBlurEffect(style: .extraLight)
+
             case .lightContent:
                 return UIBlurEffect(style: .dark)
 

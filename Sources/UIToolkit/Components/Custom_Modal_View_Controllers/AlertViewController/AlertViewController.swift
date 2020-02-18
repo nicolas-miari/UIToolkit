@@ -12,7 +12,7 @@ import UIKit
  Implements a custom modal presentation style reminiscent of UIAlertController
  with `.alert` style.
  */
-open class AlertViewController: ModalViewController {
+open class AlertViewController: UIViewController, ModalPresentable {
 
     // MARK: -
 
@@ -83,6 +83,14 @@ open class AlertViewController: ModalViewController {
         }
     }
 
+    // MARK: - ModalPresentable
+
+    public var dimmingOpacity: CGFloat = ModalPresentableDefaults.dimmingOpacity
+
+    public var presentationDuration: TimeInterval = ModalPresentableDefaults.presentationDuration
+
+    public var dismissalDuration: TimeInterval = ModalPresentableDefaults.dismissalDuration
+    
     // MARK: - UIViewController
 
     ///

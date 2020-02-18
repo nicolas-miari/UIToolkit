@@ -43,7 +43,7 @@ class SheetPresentationController: UIPresentationController {
 
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
 
-        if let sheet = presentedViewController as? ModalViewController {
+        if let sheet = presentedViewController as? ModalPresentable {
             dimmingView.backgroundColor = UIColor(white: 0.0, alpha: sheet.dimmingOpacity)
         } else {
             dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.125)
