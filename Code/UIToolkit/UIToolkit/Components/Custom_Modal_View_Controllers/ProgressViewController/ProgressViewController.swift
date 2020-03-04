@@ -201,6 +201,7 @@ open class ProgressViewController: UIViewController {
 
     override open var preferredContentSize: CGSize {
         set {
+            _ = newValue
         }
         get {
             self.view.layoutIfNeeded()

@@ -261,11 +261,12 @@
 		1F9B509A215671B500ECE00D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Nicolás Miari";
 				TargetAttributes = {
 					1F9B50A2215671B500ECE00D = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -275,6 +276,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 1F9B5099215671B500ECE00D;
 			productRefGroup = 1F9B50A4215671B500ECE00D /* Products */;
@@ -492,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasmiari.UIToolkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -520,7 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasmiari.UIToolkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

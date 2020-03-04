@@ -23,11 +23,17 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
     public var duration: TimeInterval {
         switch phase {
         case .presenting:
-            return 0.25
+            return presentationDuration
         case .dismissing:
-            return 0.125
+            return dismissalDuration
         }
     }
+
+    ///
+    public var presentationDuration: TimeInterval = 0.25
+
+    ///
+    public var dismissalDuration: TimeInterval = 0.125
 
     /// Consider making globally configurable.
     ///

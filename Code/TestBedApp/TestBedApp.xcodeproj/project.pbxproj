@@ -145,6 +145,7 @@
 				TargetAttributes = {
 					1F9B50B6215671E400ECE00D = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -366,7 +367,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasmiari.TestBedApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS/";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,7 +387,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasmiari.TestBedApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS/";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

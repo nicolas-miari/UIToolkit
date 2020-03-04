@@ -15,7 +15,7 @@ public extension UIImage {
      Forces the specified size, so aspect ratio is **not** preserved. In order
      to preserve aspect ratio, use `resizedToFit(_:)` instead.
     */
-    public func resizedTo(_ newSize: CGSize) -> UIImage {
+    func resizedTo(_ newSize: CGSize) -> UIImage {
         if #available(iOSApplicationExtension 10.0, *) {
             let renderer = UIGraphicsImageRenderer(size: newSize)
             let image = renderer.image { _ in
@@ -52,7 +52,7 @@ public extension UIImage {
      resizing that `UIImageView` does to its content when contentMode is set to
      `.scaleAspectFit`.
      */
-    public func resizedToFit(_ newSize: CGSize) -> UIImage {
+    func resizedToFit(_ newSize: CGSize) -> UIImage {
         let currentSize = self.size
         let imageAspect = currentSize.width / currentSize.height
         let targetAspect = newSize.width / newSize.height
@@ -80,7 +80,7 @@ public extension UIImage.Orientation {
     /**
      For identifying each value on the debug console.
      */
-    public var debugDescription: String {
+    var debugDescription: String {
         switch  self {
         case .up:
             return "Up"
@@ -98,6 +98,8 @@ public extension UIImage.Orientation {
             return "Right"
         case .rightMirrored:
             return "Right (Mirrored)"
+        @unknown default:
+            return "Unknown"
         }
     }
 
@@ -106,7 +108,7 @@ public extension UIImage.Orientation {
      possible EXIF orientations (up, down, left, right, and their mirrored
      counterparts). However, the actual enumeration raw values do not match.
      */
-    public var cgOrientation: CGImagePropertyOrientation {
+    var cgOrientation: CGImagePropertyOrientation {
         switch self {
         case .up:
             return .up
@@ -124,14 +126,16 @@ public extension UIImage.Orientation {
             return .right
         case .rightMirrored:
             return .rightMirrored
+        @unknown default:
+            fatalError("Unsupported case \(self.debugDescription)")
         }
     }
 
-    public static func == (lhs: UIImage.Orientation, rhs: CGImagePropertyOrientation) -> Bool {
+    static func == (lhs: UIImage.Orientation, rhs: CGImagePropertyOrientation) -> Bool {
         return (lhs.cgOrientation == rhs)
     }
 
-    public static func == (lhs: CGImagePropertyOrientation, rhs: UIImage.Orientation) -> Bool {
+    static func == (lhs: CGImagePropertyOrientation, rhs: UIImage.Orientation) -> Bool {
         return (lhs == rhs.cgOrientation)
     }
 }

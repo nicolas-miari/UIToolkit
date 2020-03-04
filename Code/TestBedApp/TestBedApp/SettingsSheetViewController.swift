@@ -19,6 +19,7 @@ class SettingsSheetViewController: SheetViewController {
 
     override var preferredContentSize: CGSize {
         set {
+            _ = newValue
         }
         get {
             guard let nav = self.children.first as? UINavigationController else {

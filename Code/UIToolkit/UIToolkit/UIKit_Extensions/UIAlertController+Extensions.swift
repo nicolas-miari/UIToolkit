@@ -17,7 +17,7 @@ public extension UIAlertController {
      - parameter style: The style of the button associated with the action.
      - parameter handler: An optional closure executed when the user taps the button associated with the action.
      */
-    public func addAction(title: String?, style: UIAlertAction.Style, handler: ((UIAlertAction) -> Void)? = nil){
+    func addAction(title: String?, style: UIAlertAction.Style, handler: ((UIAlertAction) -> Void)? = nil) {
         let action = UIAlertAction(title: title, style: style, handler: handler)
         self.addAction(action)
     }

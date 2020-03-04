@@ -88,6 +88,7 @@ open class AlertViewController: ModalViewController {
     ///
     override open var preferredContentSize: CGSize {
         set {
+            _ = newValue
         }
         get {
             guard let presentingSize = presentingViewController?.view.bounds.size else {

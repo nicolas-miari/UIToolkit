@@ -14,7 +14,7 @@ public extension UIViewController {
      specified title, message and (single) dismiss button title, and no actions
      attached (simply informative).
      */
-    public func presentInformativeAlert(title: String, message: String, dismissButtonTitle: String, completion: (() -> Void)? = nil) {
+    func presentInformativeAlert(title: String, message: String, dismissButtonTitle: String, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: dismissButtonTitle, style: .default, handler: nil))
         self.present(alertController, animated: true, completion: completion)
