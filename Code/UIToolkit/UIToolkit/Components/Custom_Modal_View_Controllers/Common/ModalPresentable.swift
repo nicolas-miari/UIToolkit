@@ -12,25 +12,19 @@ import UIKit
  - todo: Consider making a protocol, so it can be adopted by (e.g.) subclasses
  of UITableViewController, etc.
  */
-open class ModalViewController: UIViewController, AnimatedTransitionable {
 
-    /**
-     Default is 0.125.
-     */
-    public var dimmingOpacity: CGFloat = 0.125
+protocol ModalPresentable: AnimatedTransitionable {
 
-    /**
-     Default is 0.125.
-     */
-    public var presentationDuration: TimeInterval = 0.125
+    var dimmingOpacity: CGFloat { get set }
 
-    /**
-     Default is 0.125.
-     */
-    public var dismissalDuration: TimeInterval = 0.125
+    var presentationDuration: TimeInterval { get set }
 
-    // MARK: - AnimatedTransitionable
+    var dismissalDuration: TimeInterval { get set }
+}
 
+// MARK: - Default Implementations
+
+extension ModalPresentable where Self: UIViewController {
     func transitionDuration(for phase: AnimatedTransitionPhase) -> TimeInterval {
         switch phase {
         case .presenting:
@@ -39,4 +33,13 @@ open class ModalViewController: UIViewController, AnimatedTransitionable {
             return dismissalDuration
         }
     }
+}
+
+public struct ModalPresentableDefaults {
+
+    public static let dimmingOpacity: CGFloat = 0.5
+
+    public static let presentationDuration: TimeInterval = 0.25
+
+    public static let dismissalDuration: TimeInterval = 0.125
 }

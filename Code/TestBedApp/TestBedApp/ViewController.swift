@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func launchProgress(_ sender: Any) {
-        let progress = ProgressViewController(layout: .activityIndicatorAlone, style: .darkContent)
+        let progress = ProgressViewController(layout: .activityIndicatorAlone, style: .lightContent)
+        //progress.presentationDuration = 0.0625
+        //progress.dismissalDuration = 3
         present(progress, animated: true, completion: nil)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {

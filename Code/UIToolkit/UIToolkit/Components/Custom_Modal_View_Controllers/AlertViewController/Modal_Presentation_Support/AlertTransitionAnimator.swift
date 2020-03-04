@@ -20,20 +20,15 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
 
     /// Consider making globally configurable.
     ///
+    /*
     public var duration: TimeInterval {
         switch phase {
         case .presenting:
-            return presentationDuration
+            return ModalPresentableDefaults.presentationDuration
         case .dismissing:
-            return dismissalDuration
+            return ModalPresentableDefaults.dismissalDuration
         }
-    }
-
-    ///
-    public var presentationDuration: TimeInterval = 0.25
-
-    ///
-    public var dismissalDuration: TimeInterval = 0.125
+    }*/
 
     /// Consider making globally configurable.
     ///
@@ -48,7 +43,19 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
     // MARK: - UIViewControllerAnimatedTransitioning
 
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
+        switch phase {
+        case .presenting:
+            if let presented = transitionContext?.viewController(forKey: .to) as? ModalPresentable {
+                return presented.presentationDuration
+            }
+            return ModalPresentableDefaults.presentationDuration
+
+        case .dismissing:
+            if let dismissed = transitionContext?.viewController(forKey: .from) as? ModalPresentable {
+                return dismissed.dismissalDuration
+            }
+            return ModalPresentableDefaults.dismissalDuration
+        }
     }
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -102,6 +109,7 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
         toView.centerYAnchor.constraint(equalTo: transitionContext.containerView.centerYAnchor).isActive = true
 
         // 5. Create the animations.
+        let duration = transitionDuration(using: transitionContext)
         UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseOut], animations: {
             // In your animation block, animate the “to” view to its final
             // location in the container view. Set any other properties to their
@@ -144,6 +152,7 @@ public class AlertTransitionAnimator: NSObject, UIViewControllerAnimatedTransiti
         }
 
         // 4. Create the animations.
+        let duration = transitionDuration(using: transitionContext)
         UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseOut], animations: {
             // In your animation block, animate the “from” view to its final
             // location in the container view. Set any other properties to their
