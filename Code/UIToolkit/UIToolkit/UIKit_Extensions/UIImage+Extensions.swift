@@ -71,6 +71,26 @@ public extension UIImage {
             return self.resizedTo(correctedSize)
         }
     }
+
+    /**
+     Initializes an instance as a solid (constant) image of the specified color and size
+     */
+    convenience init?(color: UIColor?, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        let actualColor = color ?? .clear
+        context?.setFillColor(actualColor.cgColor)
+        context?.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+
+        guard let cgImage = image?.cgImage else {
+            return nil
+        }
+        self.init(cgImage: cgImage)
+    }
 }
 
 // MARK: -
