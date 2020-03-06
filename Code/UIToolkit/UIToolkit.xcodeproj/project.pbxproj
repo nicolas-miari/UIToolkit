@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,11 +26,11 @@
 		1F9B510E2156797C00ECE00D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B510B2156797C00ECE00D /* UIViewController+Extensions.swift */; };
 		1F9B510F2156797C00ECE00D /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B510C2156797C00ECE00D /* UIImageView+Extensions.swift */; };
 		1FB80F3022080A9D002A30BF /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB80F2F22080A9D002A30BF /* UIAlertController+Extensions.swift */; };
-		1FC9175A2159CCE300AB1262 /* CGUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B513E2156818300ECE00D /* CGUtils.framework */; };
 		1FEB13DB2159DF4E00FD4590 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB13DA2159DF4E00FD4590 /* AlertViewController.swift */; };
 		1FFB5980241088CF006A61B1 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFB597F241088CF006A61B1 /* UIColor+Utils.swift */; };
 		1FFB5982241088FC006A61B1 /* UIBezierPath+Superellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFB5981241088FC006A61B1 /* UIBezierPath+Superellipse.swift */; };
 		1FFB598424108936006A61B1 /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFB598324108936006A61B1 /* UIButton+BackgroundColor.swift */; };
+		1FFB59E92412003C006A61B1 /* CGUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFB59E82412003C006A61B1 /* CGUtils */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,6 @@
 		1F9B510B2156797C00ECE00D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		1F9B510C2156797C00ECE00D /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		1F9B513C21567DB100ECE00D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../../../Cartfile; sourceTree = "<group>"; };
-		1F9B513E2156818300ECE00D /* CGUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CGUtils.framework; path = ../../Carthage/Build/iOS/CGUtils.framework; sourceTree = "<group>"; };
 		1FB80F2F22080A9D002A30BF /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		1FEB13DA2159DF4E00FD4590 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		1FFB597F241088CF006A61B1 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
@@ -69,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC9175A2159CCE300AB1262 /* CGUtils.framework in Frameworks */,
+				1FFB59E92412003C006A61B1 /* CGUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +215,6 @@
 		1F9B513D2156818300ECE00D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F9B513E2156818300ECE00D /* CGUtils.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -259,6 +257,9 @@
 			dependencies = (
 			);
 			name = UIToolkit;
+			packageProductDependencies = (
+				1FFB59E82412003C006A61B1 /* CGUtils */,
+			);
 			productName = UIToolkit;
 			productReference = 1F9B50A3215671B500ECE00D /* UIToolkit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -287,6 +288,9 @@
 				Base,
 			);
 			mainGroup = 1F9B5099215671B500ECE00D;
+			packageReferences = (
+				1FFB59E72412003C006A61B1 /* XCRemoteSwiftPackageReference "CGUtils" */,
+			);
 			productRefGroup = 1F9B50A4215671B500ECE00D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -493,7 +497,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = UIToolkit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -521,7 +525,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = UIToolkit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -560,6 +564,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1FFB59E72412003C006A61B1 /* XCRemoteSwiftPackageReference "CGUtils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicolas-miari/CGUtils";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1FFB59E82412003C006A61B1 /* CGUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FFB59E72412003C006A61B1 /* XCRemoteSwiftPackageReference "CGUtils" */;
+			productName = CGUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F9B509A215671B500ECE00D /* Project object */;
 }
