@@ -8,7 +8,7 @@
 
 import UIKit
 /**
- Manages the transiiton (presentation and animation) of view controllers that
+ Manages the (presentation and animation) of view controllers that
  need to be presented modally in a manner that mimicks that of the stock
  `UIAlertController` with the style set to `.alert.`: The view controller's main
  view is presented at less-than-fullscreen size, with rounded corners and a
