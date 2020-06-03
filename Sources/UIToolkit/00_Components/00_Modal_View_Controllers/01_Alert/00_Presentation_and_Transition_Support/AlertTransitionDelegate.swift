@@ -20,6 +20,7 @@ class AlertTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
     }
 
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return UIPresentationController(presentedViewController: presented, presenting: presenting)
+        return AlertPresentationController(presentedViewController: presented, presenting: presenting)
+        //return UIPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

@@ -44,7 +44,7 @@ extension ModalPresentationTransitionable {
  */
 public struct ModalPresentationDefaults {
 
-    public static let dimmingOpacity: CGFloat = 0.5
+    public static let dimmingOpacity: CGFloat = 0.35
 
     public static let presentationDuration: TimeInterval = 0.25
 

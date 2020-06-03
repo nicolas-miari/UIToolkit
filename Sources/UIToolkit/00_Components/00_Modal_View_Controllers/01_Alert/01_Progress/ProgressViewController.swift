@@ -25,7 +25,7 @@ open class ProgressViewController: ModalViewController {
     public let layout: ProgressViewControllerLayout
 
     ///
-    private let margin: CGFloat = 16
+    private let margin: CGFloat = 24//16
 
     // MARK: - Initialization
 
