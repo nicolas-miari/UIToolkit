@@ -12,19 +12,7 @@ import UIKit
  To use, simply present modally like any other view controller (e.g. `UIAlertController`). Custom modal
  presentation is provided by supporting classes.
  */
-open class ProgressViewController: UIViewController, ModalPresentable {
-    /*
-     Because `UIViewController.transitioningDelegate` is a **weak** property,
-     we need this additional reference to hold to it strongly and prevent
-     premature deallocation.
-
-     Alternatives would be:
-       1. Making the delegate a singleton (bad!), or
-       2. Making the view controller adopt the protocol and double as its own transition delegate (inelegant?)
-     */
-    // swiftlint:disable weak_delegate
-    private let customTransitioningDelegate: AlertTransitionDelegate
-    // swiftlint:enable weak_delegate
+open class ProgressViewController: ModalViewController {
 
     public let message: String?
 
@@ -38,14 +26,6 @@ open class ProgressViewController: UIViewController, ModalPresentable {
 
     ///
     private let margin: CGFloat = 16
-
-    // MARK: - ModalPresentable
-
-    public var dimmingOpacity: CGFloat = ModalPresentableDefaults.dimmingOpacity
-
-    public var presentationDuration: TimeInterval = ModalPresentableDefaults.presentationDuration
-
-    public var dismissalDuration: TimeInterval = ModalPresentableDefaults.dismissalDuration
 
     // MARK: - Initialization
 
@@ -75,12 +55,10 @@ open class ProgressViewController: UIViewController, ModalPresentable {
 
         self.style = style
 
-        self.customTransitioningDelegate = AlertTransitionDelegate()
-
         super.init(nibName: nil, bundle: nil)
 
         self.modalPresentationStyle = .custom
-        self.transitioningDelegate = customTransitioningDelegate
+        self.transitioningDelegate = AlertTransitionDelegate.shared
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

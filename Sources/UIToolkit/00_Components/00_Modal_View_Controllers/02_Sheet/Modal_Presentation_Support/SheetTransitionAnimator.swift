@@ -22,9 +22,9 @@ class SheetTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     ///
     public var defaultDuration: TimeInterval {
         switch phase {
-        case .presenting:
+        case .presentation:
             return 0.125
-        case .dismissing:
+        case .dismissal:
             return 0.125
         }
     }
@@ -38,7 +38,7 @@ class SheetTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     // MARK: - UIViewControllerAnimatedTransitioning
 
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        guard let target = transitionContext?.viewController(forKey: .to) as? AnimatedTransitionable else {
+        guard let target = transitionContext?.viewController(forKey: .to) as? ModalPresentationTransitionable else {
             return defaultDuration
         }
         return target.transitionDuration(for: phase)
@@ -46,9 +46,9 @@ class SheetTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         switch phase {
-        case .presenting:
+        case .presentation:
             animatePresentation(using: transitionContext)
-        case .dismissing:
+        case .dismissal:
             animateDismissal(using: transitionContext)
         }
     }
@@ -94,7 +94,7 @@ class SheetTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         // 6. Animate
 
         let duration: TimeInterval = {
-            guard let transitionable = toViewController as? AnimatedTransitionable else {
+            guard let transitionable = toViewController as? ModalPresentationTransitionable else {
                 return defaultDuration
             }
             return transitionable.transitionDuration(for: phase)
@@ -153,7 +153,7 @@ class SheetTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         //
 
         let duration: TimeInterval = {
-            guard let transitionable = transitionContext.viewController(forKey: .from) as? AnimatedTransitionable else {
+            guard let transitionable = transitionContext.viewController(forKey: .from) as? ModalPresentationTransitionable else {
                 return defaultDuration
             }
             return transitionable.transitionDuration(for: phase)

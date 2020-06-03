@@ -21,11 +21,11 @@ class SheetTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
     }
 
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SheetTransitionAnimator(phase: .presenting)
+        return SheetTransitionAnimator(phase: .presentation)
     }
 
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SheetTransitionAnimator(phase: .dismissing)
+        return SheetTransitionAnimator(phase: .dismissal)
     }
 
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {

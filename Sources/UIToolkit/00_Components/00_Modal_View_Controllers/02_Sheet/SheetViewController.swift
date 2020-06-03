@@ -12,7 +12,7 @@ import UIKit
  Implements a custom modal presentation style reminiscent of UIAlertController
  with `.sheet` style.
  */
-open class SheetViewController: UIViewController, ModalPresentable {
+open class SheetViewController: UIViewController, ModalPresentationTransitionable {
 
     private static let transitionDelegate = SheetTransitionDelegate()
 
@@ -44,11 +44,11 @@ open class SheetViewController: UIViewController, ModalPresentable {
 
     // MARK: - ModalPresentable
 
-    public var dimmingOpacity: CGFloat = ModalPresentableDefaults.dimmingOpacity
+    public var dimmingOpacity: CGFloat = ModalPresentationDefaults.dimmingOpacity
 
-    public var presentationDuration: TimeInterval = ModalPresentableDefaults.presentationDuration
+    public var presentationDuration: TimeInterval = ModalPresentationDefaults.presentationDuration
 
-    public var dismissalDuration: TimeInterval = ModalPresentableDefaults.dismissalDuration
+    public var dismissalDuration: TimeInterval = ModalPresentationDefaults.dismissalDuration
 
     // MARK: - Initialization
 

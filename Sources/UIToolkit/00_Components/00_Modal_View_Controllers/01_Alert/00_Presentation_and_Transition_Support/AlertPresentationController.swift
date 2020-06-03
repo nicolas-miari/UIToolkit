@@ -9,9 +9,11 @@
 import UIKit
 
 /**
- Presents arbitrary view controllers in a maner similar to the stock
- `UIAlertController` with an `.alert` style: smaller than full-screen, with the
- view's corners rounded and a dimmed background underneath.
+ Custom UIPresentationController subclass that coordinates view controller views
+ and other auxiliary views when presenting and dismissing view controller
+ modally, in a manner that mimics that of UIAlertController's `.alert` style:
+ the presented view controller's view is displayed smaller than full-screen,
+ with its corners rounded, and a dimmed background underneath.
 */
 class AlertPresentationController: UIPresentationController {
 
@@ -42,7 +44,7 @@ class AlertPresentationController: UIPresentationController {
 
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
 
-        if let alert = presentedViewController as? ModalPresentable {
+        if let alert = presentedViewController as? ModalPresentationTransitionable {
             dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alert.dimmingOpacity)
         } else {
             dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
